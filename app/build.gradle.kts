@@ -61,4 +61,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.1")
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+    implementation("androidx.navigation:navigation-compose:2.9.0")
+    implementation("androidx.compose.material3:material3:1.3.2")
+    implementation ("androidx.compose.material:material-icons-extended:1.7.8")
 }
