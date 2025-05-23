@@ -13,6 +13,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -75,6 +76,17 @@ fun ListSuppliers(
             }) {
                 Icon(Icons.Default.Add, contentDescription = "Agregar")
             }
+        },
+        bottomBar = {
+            BottomAppBar(
+                modifier = TODO(),
+                containerColor = TODO(),
+                contentColor = TODO(),
+                tonalElevation = TODO(),
+                contentPadding = TODO(),
+                windowInsets = TODO(),
+                content = TODO()
+            )
         }
     ) { padding ->
         Box(modifier = Modifier.padding(padding)) {
@@ -186,11 +198,11 @@ private fun SupplierListItem(
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = supplier.name,
-                    style = MaterialTheme.typography.labelSmall
+                    style = MaterialTheme.typography.labelLarge
                 )
                 Text(
                     text = supplier.contact_info,
-                    style = MaterialTheme.typography.labelLarge
+                    style = MaterialTheme.typography.labelSmall
                 )
             }
             IconButton(

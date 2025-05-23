@@ -34,8 +34,18 @@ class SupplierViewModel(
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
 
+    // Estado para el proveedor en edición
+    private val _editingSupplier = MutableStateFlow<Supplier?>(null)
+    val editingSupplier: StateFlow<Supplier?> = _editingSupplier.asStateFlow()
+
     init {
         loadSuppliers()
+    }
+
+    fun loadSupplierForEditing(id: Int) {
+        viewModelScope.launch {
+            getSupplierById(id)
+        }
     }
 
     fun loadSuppliers() {
