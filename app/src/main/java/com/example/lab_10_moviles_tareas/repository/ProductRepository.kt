@@ -1,10 +1,10 @@
 package com.example.lab_10_moviles_tareas.repository
 
 import com.example.lab_10_moviles_tareas.model.Product
-import com.example.lab_10_moviles_tareas.service.tiendaApiService
+import com.example.lab_10_moviles_tareas.service.ShopApiService
 
-class productRepository(
-    private val apiService: tiendaApiService
+class ProductRepository(
+    private val apiService: ShopApiService
 ) {
     suspend fun getProducts() = apiService.getProducts()
     suspend fun getProduct(id: Int) = apiService.getProduct(id)

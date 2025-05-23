@@ -1,10 +1,10 @@
 package com.example.lab_10_moviles_tareas.repository
 
 import com.example.lab_10_moviles_tareas.model.Category
-import com.example.lab_10_moviles_tareas.service.tiendaApiService
+import com.example.lab_10_moviles_tareas.service.ShopApiService
 
-class categoryRepository(
-    private val apiService: tiendaApiService
+class CategoryRepository(
+    private val apiService: ShopApiService
 ) {
     suspend fun getCategories() = apiService.getCategories()
     suspend fun getCategory(id: Int) = apiService.getCategory(id)

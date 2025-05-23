@@ -12,11 +12,11 @@ import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
 
-interface tiendaApiService {
+interface ShopApiService {
 
     // Rutas para los productos
     @GET("products")
-    suspend fun getProducts(): List<Product>
+    suspend fun getProducts(): ArrayList<Product>
 
     @GET("products/{id}")
     suspend fun getProduct(@Path("id") id: Int): Response<Product>
