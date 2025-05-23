@@ -4,7 +4,7 @@ import com.example.lab_10_moviles_tareas.model.Supplier
 import com.example.lab_10_moviles_tareas.repository.SupplierRepository
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.lab_10_moviles_tareas.viewModel.fake.util.ISupplierViewModel
+//import com.example.lab_10_moviles_tareas.viewModel.fake.util.ISupplierViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -12,11 +12,11 @@ import kotlinx.coroutines.launch
 
 class SupplierViewModel(
     private val repository: SupplierRepository
-) : ViewModel(), ISupplierViewModel {
+) : ViewModel() {
 
     // Estado para la lista de proveedores
     private val _suppliers = MutableStateFlow<List<Supplier>>(emptyList())
-    override val suppliers: StateFlow<List<Supplier>> = _suppliers.asStateFlow()
+    val suppliers: StateFlow<List<Supplier>> = _suppliers.asStateFlow()
 
     // Estado para el proveedor actual (para detalles/edición)
     private val _currentSupplier = MutableStateFlow<Supplier?>(null)
@@ -24,21 +24,21 @@ class SupplierViewModel(
 
     // Estado para manejar errores
     private val _errorMessage = MutableStateFlow<String?>(null)
-    override val errorMessage: StateFlow<String?> = _errorMessage.asStateFlow()
+    val errorMessage: StateFlow<String?> = _errorMessage.asStateFlow()
 
     // Estado para operaciones exitosas
     private val _successMessage = MutableStateFlow<String?>(null)
-    override val successMessage: StateFlow<String?> = _successMessage.asStateFlow()
+    val successMessage: StateFlow<String?> = _successMessage.asStateFlow()
 
     // Estado de carga
     private val _isLoading = MutableStateFlow(false)
-    override val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
+    val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
 
     init {
         loadSuppliers()
     }
 
-    override fun loadSuppliers() {
+    fun loadSuppliers() {
         viewModelScope.launch {
             _isLoading.value = true
             try {
@@ -53,7 +53,7 @@ class SupplierViewModel(
         }
     }
 
-    override fun getSupplierById(id: Int) {
+    fun getSupplierById(id: Int) {
         viewModelScope.launch {
             _isLoading.value = true
             try {
@@ -71,7 +71,7 @@ class SupplierViewModel(
         }
     }
 
-    override fun createSupplier(supplier: Supplier) {
+    fun createSupplier(supplier: Supplier) {
         viewModelScope.launch {
             _isLoading.value = true
             try {
@@ -90,7 +90,7 @@ class SupplierViewModel(
         }
     }
 
-    override fun updateSupplier(id: Int, supplier: Supplier) {
+    fun updateSupplier(id: Int, supplier: Supplier) {
         viewModelScope.launch {
             _isLoading.value = true
             try {
@@ -109,7 +109,7 @@ class SupplierViewModel(
         }
     }
 
-    override fun deleteSupplier(id: Int) {
+    fun deleteSupplier(id: Int) {
         viewModelScope.launch {
             _isLoading.value = true
             try {
@@ -128,11 +128,11 @@ class SupplierViewModel(
         }
     }
 
-    override fun clearCurrentSupplier() {
+    fun clearCurrentSupplier() {
         _currentSupplier.value = null
     }
 
-    override fun clearMessages() {
+    fun clearMessages() {
         _errorMessage.value = null
         _successMessage.value = null
     }

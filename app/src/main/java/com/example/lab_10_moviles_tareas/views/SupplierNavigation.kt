@@ -1,12 +1,18 @@
 package com.example.lab_10_moviles_tareas.views
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.lab_10_moviles_tareas.viewModel.SupplierViewModel
+import com.example.lab_10_moviles_tareas.views.supplier.ListSuppliers
 
 @Composable
-fun Navigation() {
+fun SupplierNavigation(
+    viewModel: SupplierViewModel,
+    navController: NavHostController = rememberNavController()
+) {
     val navController = rememberNavController()
 
     NavHost(
@@ -15,7 +21,12 @@ fun Navigation() {
     ) {
 
         // Ruta para la lista de proveedores
-        composable("listSuppliers") {}
+        composable("listSuppliers") {
+            ListSuppliers(
+                navController = navController,
+                viewModel = viewModel
+            )
+        }
         composable("addSupplier") {}
         composable("supplierDetail/{supplierId}") { backStackEntry -> }
         composable("updateSupplier/{supplierId}") { backStackEntry -> }

@@ -8,16 +8,16 @@ import com.example.lab_10_moviles_tareas.viewModel.fake.FakeSupplierViewModel
 import com.example.lab_10_moviles_tareas.views.supplier.ListSuppliers
 import kotlinx.coroutines.flow.MutableStateFlow
 
-//@Preview(showBackground = true, name = "Lista normal")
-//@Composable
-//fun ListSuppliersPreview_Normal() {
-//    Lab_10_moviles_tareasTheme {
-//        ListSuppliers(
-//            navController = rememberNavController(),
-//            viewModel = FakeSupplierViewModel()
-//        )
-//    }
-//}
+@Preview(showBackground = true, name = "Lista normal")
+@Composable
+fun ListSuppliersPreview_Normal() {
+    Lab_10_moviles_tareasTheme {
+        ListSuppliers(
+            navController = rememberNavController(),
+            viewModel = FakeSupplierViewModel()
+        )
+    }
+}
 
 @Preview(showBackground = true, name = "Lista vacía")
 @Composable
